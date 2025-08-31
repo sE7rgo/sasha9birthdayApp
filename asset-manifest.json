@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/sasha9birthday/static/css/main.c5f1952c.css",
+    "main.js": "/sasha9birthday/static/js/main.fd410bf7.js",
+    "static/js/453.7b0812fe.chunk.js": "/sasha9birthday/static/js/453.7b0812fe.chunk.js",
+    "static/media/background.jpg": "/sasha9birthday/static/media/background.782efea8f81abaa59a8f.jpg",
+    "static/media/where.png": "/sasha9birthday/static/media/where.456541522adc9e2e6293.png",
+    "static/media/welcome.png": "/sasha9birthday/static/media/welcome.1d4a0ed7f9d1c2d95d08.png",
+    "static/media/Pop 2.mp3": "/sasha9birthday/static/media/Pop 2.bba281307f5cef053a39.mp3",
+    "index.html": "/sasha9birthday/index.html",
+    "main.c5f1952c.css.map": "/sasha9birthday/static/css/main.c5f1952c.css.map",
+    "main.fd410bf7.js.map": "/sasha9birthday/static/js/main.fd410bf7.js.map",
+    "453.7b0812fe.chunk.js.map": "/sasha9birthday/static/js/453.7b0812fe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5f1952c.css",
+    "static/js/main.fd410bf7.js"
+  ]
+}
