@@ -47,8 +47,26 @@ const Chat = () => {
       setIsConnected(true);
     });
 
-    const room = droneInstance.subscribe("observable-room");
+    // Subscribe to room with history
+    const room = droneInstance.subscribe("observable-room", {
+      historyCount: 20, // ask for the 20 most recent messages from the room's history
+    });
+    console.log("room", room);
 
+    // Listen for historical messages
+    room.on("history_message", (message) => {
+      console.log("History message:", message);
+      // Only add messages of type 'message' to state
+      if (message.data && message.data.type === "message" && message.data.text && message.data.sender) {
+        setMessages((prev) => [...prev, {
+          ...message.data,
+          color: message.data.color || "#888",
+          timestamp: message.data.timestamp || new Date(message.timestamp * 1000).toLocaleString(),
+        }]);
+      }
+    });
+
+    // Listen for new messages
     room.on("data", (data) => {
       console.log("Received data:", data);
       if (!data || typeof data !== "object" || !data.type) {
@@ -91,6 +109,35 @@ const Chat = () => {
       droneInstance.close();
     };
   }, [user]);
+
+  // Preload message history from Scaledrone REST API
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        if (!scaledroneChannel) return;
+        const response = await fetch(
+          `https://api.scaledrone.com/v3/${scaledroneChannel}/rooms/observable-room/messages?limit=20`,
+        );
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched history:", data); // Debug log
+          const historyMessages = data.map((msg) => ({
+            type: (msg.data && msg.data.type) || "message",
+            text: (msg.data && msg.data.text) || JSON.stringify(msg.data),
+            sender: (msg.data && msg.data.sender) || "Unknown",
+            color: (msg.data && msg.data.color) || "#888",
+            timestamp:
+              (msg.data && msg.data.timestamp) ||
+              new Date(msg.timestamp * 1000).toLocaleString(),
+          }));
+          setMessages(historyMessages);
+        }
+      } catch (error) {
+        console.error("Failed to fetch message history:", error);
+      }
+    };
+    fetchHistory();
+  }, [scaledroneChannel]);
 
   // Handler for username submit
   const handleUsernameSubmit = (e) => {

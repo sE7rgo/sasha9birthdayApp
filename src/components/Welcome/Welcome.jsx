@@ -12,6 +12,10 @@ const Welcome = ({ setTab }) => {
     setTab("where");
   };
 
+  const handleWhatButtonClick = () => {
+    setTab("what");
+  };
+
   const handleChatButtonClick = () => {
     setTab("chat");
   };
@@ -49,6 +53,9 @@ const Welcome = ({ setTab }) => {
         <CardActions>
           <Button size="large" onClick={handleWhereButtonClick}>
             Where
+          </Button>
+          <Button size="large" onClick={handleWhatButtonClick}>
+            What
           </Button>
           <Button size="large" onClick={handleChatButtonClick}>
             Chat
