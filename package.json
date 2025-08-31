@@ -2,7 +2,7 @@
   "name": "chat-app-scaledrone",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sE7rgo.github.io/sasha9birthday/",
+  "homepage": "https://se7rgo.github.io/sasha9birthday",
   "dependencies": {
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
