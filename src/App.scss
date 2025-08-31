@@ -1,0 +1,32 @@
+// SCSS Variables
+$background-color: #f3f4f6;
+$border-color: #ccc;
+$button-color: #007bff;
+$button-hover-color: #0056b3;
+$message-own-color: #ffe6e6;
+$message-other-color: #e6f3ff;
+
+// Mixin for rounded corners
+@mixin rounded-corners($radius: 10px) {
+  border-radius: $radius;
+}
+
+// Global Styles
+
+.App {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  background: url("./assets/images/background.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+}
+
+// Remove bold from chat login prompt
+.chat-window .MuiTypography-h6 {
+  font-weight: normal !important;
+}

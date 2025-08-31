@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+.welcome-desc {
+  font-family: "Indie Flower", cursive;
+}
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+.welcome-title {
+  text-align: center;
+  font-family: "Luckiest Guy", cursive;
+}
+// SCSS Variables
+$background-color: #f3f4f6;
+$border-color: #ccc;
+$button-color: #007bff;
+$button-hover-color: #0056b3;
+$message-own-color: #ffe6e6;
+$message-other-color: #e6f3ff;
+
+// Mixin for rounded corners
+@mixin rounded-corners($radius: 10px) {
+  border-radius: $radius;
+}
+// ...existing code...
+.welcome {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  margin-top: 5%;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: none;
+}
+
+.welcome-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
